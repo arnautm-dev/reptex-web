@@ -6,7 +6,7 @@
 /* VARIABLES: facilita canviar colors i valors globals */
 :root{
   --bg: #FFFFE483;       /* fons principal */
-  --btn: #FF84C1FF;      /* color botons */
+  --btn: #84C1FF;      /* color botons */
   --accent: #FFE1B100;   /* accent (barres, destacats) */
   --text: #111827;       /* color text principal */
   --muted: #6b7280;      /* text menys destacat */
@@ -90,7 +90,7 @@ body{
 .lead{color:var(--muted);margin-top:0.25rem}
 
 /* Botons (primaris i outline) */
-.btn{
+.btn, #save-bases {
   display:inline-block;
   padding:0.6rem 1rem;
   border-radius:999px;
@@ -101,6 +101,7 @@ body{
   box-shadow:0 6px 12px rgba(0,0,0,0.08);
   border:none;
   cursor:pointer;
+  font-family: inherit;
 }
 .btn.outline{
   background:transparent;
@@ -137,7 +138,7 @@ input[type="text"], input[type="number"], textarea{
   min-height:260px;
   border-radius:10px;
   border:1px dashed rgba(0,0,0,0.06);
-  padding:1rem;
+  padding:1rem;  
 }
 
 /* Pre (llista admin) */
