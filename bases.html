@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RepteX — Bases del Concurs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <article class="card">
+      <h1>Bases del Concurs</h1>
+      <p class="muted">Enganxa o escriu aquí les bases. Pots desar-les localment amb el botó "Desa local". Si vols que es guardin a Firebase, ho puc activar (requereix permisos admin).</p>
+
+      <!-- Caixa editable per enganxar les bases. -->
+      <div id="bases-editor" class="editable-box" contenteditable="true" aria-label="Àrea per enganxar les bases">
+        <p class="placeholder">Elimina aquest text i enganxa aquí les bases del concurs (HTML o text). Pots donar format bàsic (encapçalaments, llistes, enllaços).</p>
+      </div>
+
+      <div class="actions" style="margin-top:1rem;">
+        <!-- Desa localment com a fitxer HTML -->
+        <button id="save-bases" class="btn">Desa local (.html)</button>
+        <a class="btn outline" href="index.html">Torna</a>
+      </div>
+
+      <p class="note">Si vols que les bases es guardin a Firebase i només l'admin pugui editar-les, activa aquesta opció a Admin (et puc afegir la funcionalitat si vols).</p>
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHeaderFooter();
+
+      // Botó per desar localment l'HTML de les bases (descàrrega)
+      document.getElementById('save-bases').addEventListener('click', () => {
+        const content = document.getElementById('bases-editor').innerHTML;
+        const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'bases-reptex.html';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    });
+  </script>
+</body>
+</html>

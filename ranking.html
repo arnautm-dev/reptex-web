@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RepteX — Rànquing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="card">
+      <h1>Rànquing</h1>
+      <p class="muted">Ordenat per punts (descendent). Si no hi ha dades a Firebase, es mostrarà un exemple.</p>
+
+      <div id="ranking-table" class="table-wrap" aria-live="polite"></div>
+      <p class="muted note" style="margin-top:0.6rem;">Si afegeixes/edites participants a Admin, fes refresh de la pàgina per veure els canvis.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHeaderFooter();
+      loadRanking();
+    });
+  </script>
+</body>
+</html>

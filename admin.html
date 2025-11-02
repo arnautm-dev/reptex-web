@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RepteX — Zona Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="card">
+      <h1>Zona Admin</h1>
+      <p class="muted">Accions: autentica't amb Google per afegir/editar/eliminar reptes i participants del rànquing. Les modificacions es publiquen immediatament a Firebase; per veure-les a la UI cal fer <strong>refresh</strong>.</p>
+
+      <div id="admin-controls" class="stack">
+        <!-- Login / logout -->
+        <div>
+          <button id="btn-login" class="btn">Entrar amb Google</button>
+          <button id="btn-logout" class="btn outline" style="display:none;">Sortir</button>
+        </div>
+
+        <div id="admin-panel" style="display:none;">
+          <!-- Gestió reptes -->
+          <h2>Gestió Reptes</h2>
+          <label>Data (yyyy-MM-dd)</label>
+          <input id="new-ch-date" type="text" placeholder="2025-11-01" />
+          <label>Descripció</label>
+          <input id="new-ch-title" type="text" placeholder="Títol del repte" />
+          <div class="actions">
+            <button id="add-ch" class="btn">Afegir repte</button>
+            <button id="update-ch" class="btn outline">Editar repte (sobreescriure)</button>
+            <button id="delete-ch" class="btn outline">Eliminar repte</button>
+          </div>
+
+          <hr />
+
+          <!-- Gestió rànquing -->
+          <h2>Gestió Rànquing</h2>
+          <label>Nom del participant</label>
+          <input id="rank-name" type="text" placeholder="Ex: Anna" />
+          <label>Punts</label>
+          <input id="rank-points" type="number" placeholder="Ex: 120" />
+          <label>Reptes completats</label>
+          <input id="rank-ch" type="number" placeholder="Ex: 8" />
+          <div class="actions">
+            <button id="save-rank" class="btn">Desar/Actualitzar participant</button>
+            <button id="delete-rank" class="btn outline">Eliminar participant</button>
+          </div>
+
+          <div id="admin-feedback" class="muted" style="margin-top:0.5rem;"></div>
+
+          <hr />
+
+          <!-- Llistats per copiar claus (útil per editar-eliminar) -->
+          <h3>Claus existents</h3>
+          <p class="muted">Carrega la llista per veure les claus (identificadors) existents a Firebase. Pots utilitzar-les per editar/eliminar.</p>
+          <div class="actions">
+            <button id="list-history" class="btn outline">Llista Reptes (claus)</button>
+            <button id="list-ranking" class="btn outline">Llista Rànquing (claus)</button>
+          </div>
+          <pre id="admin-list-output" class="muted" style="white-space:pre-wrap;max-height:220px;overflow:auto;margin-top:0.5rem;"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Firebase compat -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHeaderFooter();
+      adminInit(); // configurar flux admin (login, accions)
+    });
+  </script>
+</body>
+</html>

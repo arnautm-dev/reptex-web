@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RepteX — Historial de Reptes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="card">
+      <h1>Historial de Reptes</h1>
+      <p class="muted">Es mostren les entrades des de Realtime Database. Format acceptat: <code>yyyy-MM-dd: text</code> o objecte amb {date, title}.</p>
+
+      <div id="challenges-list" class="stack" aria-live="polite"></div>
+      <p class="muted note" style="margin-top:0.6rem;">Des de Admin pots afegir, editar o eliminar reptes. Fes refresh per veure canvis.</p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHeaderFooter();
+      loadAllChallenges();
+    });
+  </script>
+</body>
+</html>

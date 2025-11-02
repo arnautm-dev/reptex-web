@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RepteX — Inici</title>
+
+  <!-- Tipografia Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estils globals -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header (injectat per script.js) -->
+  <div id="site-header"></div>
+
+  <main class="container">
+    <!-- Hero / Presentació -->
+    <section class="hero card" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <img src="assets/logo-placeholder.svg" alt="RepteX logo" class="logo" />
+      </div>
+      <div class="hero-right">
+        <h1 id="hero-title">Benvinguts a <span class="accent">RepteX</span></h1>
+        <p class="lead">Participa en reptes setmanals, suma punts i puja al rànquing. Trobaràs les bases, l'historial i una zona d'administració per gestionar-ho.</p>
+        <div class="actions">
+          <a class="btn" href="bases.html">Llegir les Bases</a>
+          <a class="btn outline" href="ranking.html">Veure Rànquing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Últims reptes (es llegeixen de Realtime DB a l'inicialitzar la pàgina) -->
+    <section class="card">
+      <h2>Últims reptes</h2>
+      <p class="muted">S'extrauran de la Realtime Database. Nota: recarrega la pàgina per veure canvis després d'editar a Admin.</p>
+      <div id="latest-challenges" class="stack" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Footer (injectat per script.js) -->
+  <div id="site-footer"></div>
+
+  <!-- Firebase compat (CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Config Firebase i codi general -->
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // Iniciem la pàgina: incloem header/footer i carreguem últims reptes
+    document.addEventListener('DOMContentLoaded', async () => {
+      await includeHeaderFooter();
+      loadLatestChallenges(5); // llegeix 5 últims
+    });
+  </script>
+</body>
+</html>

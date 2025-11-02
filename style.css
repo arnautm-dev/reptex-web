@@ -1,0 +1,151 @@
+/* style.css
+   Estils globals per RepteX — CSS pur.
+   Comentaris en català explicant cada secció.
+*/
+
+/* VARIABLES: facilita canviar colors i valors globals */
+:root{
+  --bg: #FFFFE483;       /* fons principal */
+  --btn: #FF84C1FF;      /* color botons */
+  --accent: #FFE1B100;   /* accent (barres, destacats) */
+  --text: #111827;       /* color text principal */
+  --muted: #6b7280;      /* text menys destacat */
+  --card-bg: #ffffff;    /* fons cartes */
+  --radius: 14px;        /* radi d'esquinas */
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+  --max-width: 1000px;
+  font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* RESET bàsic */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Contenidor central - centra i limita l'amplada */
+.container{
+  max-width:var(--max-width);
+  margin:2rem auto;
+  padding:0 1rem;
+}
+
+/* HEADER */
+.site-header{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.75rem 0;
+}
+.brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;color:var(--text)}
+.logo-sm{width:36px;height:36px}
+.brand-name{font-weight:700;font-size:1.05rem}
+
+/* Navegació */
+.nav a{
+  margin-left:1rem;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+.nav a:hover{color:var(--text)}
+
+/* Footer */
+.site-footer{margin-top:2rem;padding:1rem 0;background:rgba(255,255,255,0.7);border-top:1px solid rgba(0,0,0,0.04)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem;max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+
+/* Cartes i components */
+.card{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.25rem;
+  margin-bottom:1rem;
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+}
+.hero-left{flex:0 0 120px}
+.logo{width:100px;height:100px}
+.hero-right{flex:1}
+.lead{color:var(--muted);margin-top:0.25rem}
+
+/* Botons (primaris i outline) */
+.btn{
+  display:inline-block;
+  padding:0.6rem 1rem;
+  border-radius:999px;
+  background:var(--btn);
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 6px 12px rgba(0,0,0,0.08);
+  border:none;
+  cursor:pointer;
+}
+.btn.outline{
+  background:transparent;
+  color:var(--text);
+  border:2px solid rgba(0,0,0,0.06);
+  box-shadow:none;
+}
+
+/* Taula */
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse}
+thead th{color:var(--muted);text-align:left;padding:0.75rem}
+tbody td{padding:0.75rem;border-top:1px solid #f1f5f9}
+
+/* Helpers */
+.muted{color:var(--muted)}
+.stack> * + *{margin-top:0.75rem}
+.actions{display:flex;gap:0.6rem;margin-top:0.6rem}
+.note{font-size:0.92rem;color:var(--muted)}
+
+/* Inputs */
+input[type="text"], input[type="number"], textarea{
+  width:100%;
+  padding:0.6rem;
+  border-radius:10px;
+  border:1px solid #e6e9ee;
+  font-size:1rem;
+  margin-top:0.25rem;
+}
+
+/* Caixa editable per a les bases */
+.editable-box{
+  background:#fbfbff;
+  min-height:260px;
+  border-radius:10px;
+  border:1px dashed rgba(0,0,0,0.06);
+  padding:1rem;
+}
+
+/* Pre (llista admin) */
+pre{background:#f7f7fb;padding:0.8rem;border-radius:8px;overflow:auto}
+
+/* Responsivitat */
+@media (max-width:800px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .nav{display:none}
+  .header-inner{padding:0.6rem}
+}
