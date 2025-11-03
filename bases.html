@@ -13,8 +13,7 @@
   <main class="container">
     <article class="card">
       <h1>Bases del Concurs</h1>
-      <p class="muted">Enganxa o escriu aquí les bases. Pots desar-les localment amb el botó "Desa local". Si vols que es guardin a Firebase, ho puc activar (requereix permisos admin).</p>
-
+      
       <!-- Caixa editable per enganxar les bases. -->
       <div id="bases-editor" class="editable-box" contenteditable="false" aria-label="Bases del concurs">
         <div class="WordSection1">
@@ -107,6 +106,7 @@
 
   <div id="site-footer"></div>
 
+  <script type="module" src="firebase.js"></script>
   <script src="script.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', async () => {
