@@ -183,11 +183,11 @@ function loadRanking() {
     Reptex.get(Reptex.ref(Reptex.db, 'ranking')).then(snapshot => {
         const data = snapshot.val();
         if (!data) {
-            const demo = [
-                { id: 'u1', name: 'Anna', points: 150, challengesCompleted: 12 },
-                { id: 'u2', name: 'Pol', points: 120, challengesCompleted: 10 },
-                { id: 'u3', name: 'Mar', points: 95, challengesCompleted: 8 }
-            ];
+            //const demo = [
+            //    { id: 'u1', name: 'Anna', points: 150, challengesCompleted: 12 },
+            //    { id: 'u2', name: 'Pol', points: 120, challengesCompleted: 10 },
+            //    { id: 'u3', name: 'Mar', points: 95, challengesCompleted: 8 }
+            //];
             container.innerHTML = renderRankingTable(demo);
             return;
         }
