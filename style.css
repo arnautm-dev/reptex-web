@@ -29,6 +29,29 @@ body{
   line-height:1.45;
 }
 
+/* BANNER DE MANTENIMENT */
+.maintenance-banner{
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E72 100%);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+  position: relative;
+  z-index: 51;
+}
+
+.maintenance-text{
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+.maintenance-text strong{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* Contenidor central - centra i limita l'amplada */
 .container{
   max-width:var(--max-width);
@@ -149,4 +172,12 @@ pre{background:#f7f7fb;padding:0.8rem;border-radius:8px;overflow:auto}
   .hero{flex-direction:column;align-items:flex-start}
   .nav{display:none}
   .header-inner{padding:0.6rem}
+}
+
+#banner-bt {
+  color: white;
+  font-style: italic;
+  padding: 3px 10px;
+  border-radius: 16px;
+  background-color: #fff9be63
 }
