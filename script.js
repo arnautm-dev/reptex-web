@@ -82,7 +82,7 @@ function loadLatestChallenges(limit = 5) {
     Reptex.get(Reptex.ref(Reptex.db, 'reptes')).then(snapshot => {
         const data = snapshot.val();
         if (!data) {
-            container.innerHTML = '<div class="muted">No s\'han trobat reptes.</div>';
+            container.innerHTML = '<div class="muted">Base de dades desconnectada.</div>';
             return;
         }
 
@@ -135,7 +135,7 @@ function loadAllChallenges() {
     Reptex.get(Reptex.ref(Reptex.db, 'reptes')).then(snapshot => {
         const data = snapshot.val();
         if (!data) {
-            container.innerHTML = '<div class="muted">No hi ha reptes guardats.</div>';
+            container.innerHTML = '<div class="muted">Base de dades desconnectada.</div>';
             return;
         }
 
